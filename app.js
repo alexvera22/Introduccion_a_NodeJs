@@ -38,6 +38,11 @@ app.put("/people/:index", (req, res) => {
   /* COMPLETA EL CÓDIGO NECESARIO:
      Para que se pueda actualizar el objeto asociado al índice indicado en la URL 
    */
+     const index = parseInt(req.params.index); // Obtén el índice de la URL y conviértelo a un número entero
+       const updatedPerson = req.body; // Datos para actualizar
+       // Realiza la actualización del objeto en el arreglo
+       people[index] = updatedPerson;
+       res.status(200).json({ message: 'Objeto actualizado con éxito' });
 });
 
 app.delete("/people/:index", (req, res) => {
