@@ -46,9 +46,9 @@ app.put("/people/:index", (req, res) => {
 });
 
 app.delete("/people/:index", (req, res) => {
-  /* COMPLETA EL CÓDIGO NECESARIO:
-     Para que se pueda eliminar el objeto asociado al índice indicado en la URL 
-   */
+  const index = parseInt(req.params.index); // Obtén el índice de la URL y conviértelo a un número entero
+  people = people.filter((_, i) => i !== index); // Crea un nuevo arreglo sin el elemento en el índice especificado
+    res.status(200).json({message: "Objeto borrado con éxito" });
 });
 
 // Esta línea inicia el servidor para que escuche peticiones en el puerto indicado
